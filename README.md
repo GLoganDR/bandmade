@@ -1,39 +1,40 @@
 ## Bandmade
-### Code Badges
-build status icon
-coverage status icon
 
 ### Screenshots
-![Image1](https://raw.githubusercontent.com/nss-cohort-2014-06-07/express-template/master/docs/screenshots/one.jpg)
-![Image2](https://raw.githubusercontent.com/nss-cohort-2014-06-07/express-template/master/docs/screenshots/two.jpg)
+![Image1](https://raw.githubusercontent.com/GLoganDR/GLoganDR.github.io/master/assets/images/bandmade.jpg)
 
 ### Description
-A website dedicated to helping musicians find other musicians to make the most out of making music. 
+A website dedicated to helping musicians find other musicians of similar personality types to make the most out of making music. 
 
 ### Models
 ```
-Model 1
+user
 ```
 
 ```
-Model 2
+message (soon)
 ```
 
 ### Database
 ```
-Collecion 1
+users
 ```
 
 ```
-Collection 2
+messages (soon)
 ```
 
 ### Features
-- [x] Feature 1
-- [ ] Feature 2
-- [x] Feature 3
+- [x] Soundcloud connectivity
+- [ ] Messaging
+- [x] Reverbnation connectivity
+- [x] Mobile Responsive
+- [ ] Match based on personality types
+- [ ] Google Maps
+- [ ] OAUTH Strategies for Login
 
 ### Running Tests
+Testing not ready yet
 ```bash
 $ npm install
 $ npm test
