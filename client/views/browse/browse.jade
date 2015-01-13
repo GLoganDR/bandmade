@@ -1,0 +1,38 @@
+br
+.row
+  .col-xs-1
+  .col-xs-7
+    .formgroup
+    label Search:
+    input.form-control.search(ng-model='query')
+  .col-xs-4
+br
+.row
+  .col-xs-1
+  .col-xs-10
+    table
+      thead
+        th Band Name/Nickname
+        th Photo
+        th Profile Type
+        th Age
+        th Genres
+        th Instrument
+        th Secondary Instrument(s)
+        th Backup/Harmony Vocal
+        th Sex
+        th Location
+
+      tbody(ng-repeat='user in results | filter:query')
+        tr
+          td: a.tdLink(href='/#/view-profile/{{user._id}}') {{user.alias}}
+          td#photoTd(style='background-image: url({{user.profilePic}});')
+          td {{user.profileType}}
+          td {{user.age}}
+          td {{user.genres}}
+          td {{user.instrument}}
+          td {{user.secondary}}
+          td {{user.backup}}
+          td {{user.sex}}
+          td {{user.city}}, {{user.state}}
+  .col-xs-1

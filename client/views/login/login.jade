@@ -1,0 +1,26 @@
+.row(ng-hide='email')
+  .col-xs-1
+  .col-xs-3
+    h1 Login
+    br
+    br
+    form(role='form', novalidate, name='userForm')
+      .form-group
+        label(for='email') Email
+        input.form-control#email(type='email', name='email', ng-model='user.email', autofocus, required)
+      .form-group
+        label(for='password') Password
+        input.form-control#password(type='password', name='password', ng-model='user.password', required, ng-minlength='3')
+      button.btn.btn-primary(ng-show='userForm.$valid', ng-click='login()') Login
+  .col-xs-8
+.row(ng-hide='email')
+  .col-xs-1
+  .col-xs-3
+    h1 No Account?
+    button.btn.btn-primary 
+      a(href='/#/register') Click To Register!
+  .col-xs-8
+br
+br
+    
+

@@ -1,0 +1,54 @@
+#contact-content.container
+    #contact-content-wrap.row
+        #contact-form.col-lg-8.col-md-8.col-sm-8.left-effect
+          h4.widget-title Get in touch
+          form.form-wrapper(role='form', novalidate, name='emailForm')
+            .row
+              .col-lg-6.col-md-6.col-sm-6
+                .form-group
+                  input#name_2.form-control(type='text', name='name', data-errmsg='Name is required.', ng-model='email.firstName', placeholder='First Name *', required='required')
+              .col-lg-6.col-md-6.col-sm-6
+                .form-group
+                  input#second-name.form-control(type='text', name='name', data-errmsg='Name is required.', ng-model='email.lastName', placeholder='Last Name *', required='required')
+              .col-lg-6.col-md-6.col-sm-6
+                .form-group
+                  input#second-name.form-control(type='text', name='subject', placeholder='Subject *', ng-model='email.subject', required='required')
+              .col-lg-6.col-md-6.col-sm-6
+                .form-group
+                  input#email_2.form-control(type='text', name='email', data-errmsg='Email is required.', ng-model='email.email', placeholder='Email *', required='required')
+              .col-lg-6.col-md-6.col-sm-6
+              .col-lg-12.col-md-12.col-sm-12.message-contact
+                .form-group
+                  textarea#message_2.form-control(name='body', ng-model='email.body', data-errmsg='Message is required.', placeholder='Your Message', rows='3', required='required')
+                  button.huge.color.round.ls-s18(type='submit', ng-click='sendMail()', value='Send Message') Send Message
+        #contact-info.col-lg-4.col-md-4.col-sm-4.right-effect
+          #contact-info-wrap
+            h4.widget-title Contact Information
+            .clear-both.line.single-line
+            p.title-contact.first
+              i.fa.fa-caret-right
+              | Office:
+            p Address: 2627 Edge O Lake Dr 
+            p Nashville, TN 37217
+            p Phone: (615) 818-9354
+            p
+              | Email:
+              a(href='mailto:bandmade@gmail.com') bandmade@gmail.com
+            p.title-contact
+              i.fa.fa-caret-right
+              | Work Hours:
+            p Monday - Friday: 9:00am - 5:00pm
+            p Saturday: 10:00am - 1:00pm
+            p.title-contact Social Networks
+            ul.footer-tweet
+              li.facebook
+                a(href='http://www.facebook.com/loganwlvox')
+                  i.fa.fa-facebook
+              li.google-plus
+                a(href='https://plus.google.com/103766331767965718629')
+                  i.fa.fa-google-plus
+              li.twitter
+                a(href='http://www.twitter.com/GLoganDR')
+                  i.fa.fa-twitter
+    //
+       End content-wrapper 

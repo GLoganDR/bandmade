@@ -1,0 +1,481 @@
+br
+.row(ng-show='email')
+  .col-xs-12
+    form(role='form', novalidate, name='editForm')
+        .row
+          .col-xs-2
+          .col-xs-4
+            .row
+              .col-xs-12
+                .panel.panel-info
+                  .panel-heading
+                  .panel-body
+                    dl.dl-horizontal
+                      dt Nickname/Bandname
+                      dd 
+                        p(ng-hide='editMode') {{currentUser.alias}}
+                        input(ng-show='editMode' type='text' ng-model='currentUser.alias' required)
+                      dt(ng-show='editMode') Profile Picture
+                      dd
+                        input(ng-show='editMode' type='text' ng-model='currentUser.profilePic' required)
+                        img(src='{{currentUser.profilePic}}' style='width: 250px')
+                      dt Profile Type
+                      dd {{currentUser.profileType}}
+                        p
+                        label(ng-show='editMode') Musician &nbsp;
+                        input(ng-show='editMode', type='radio', ng-model='currentUser.profileType', value='Musician')
+                        label(ng-show='editMode') &nbsp; or &nbsp; Band &nbsp;
+                        input(ng-show='editMode', type='radio', ng-model='currentUser.profileType', value='Band')
+                        label(ng-show='editMode') &nbsp; or &nbsp; Producer &nbsp;
+                        input(ng-show='editMode', type='radio', ng-model='currentUser.profileType', value='Producer')
+                      dt Reverbnation:
+                        dd
+                          p(ng-hide='editMode')
+                            .widget_iframe(ng-hide='editMode', style='display:inline-block;width:380px;height:320px;margin:0;padding:0;border:0;')
+                              iframe.widget_iframe(src='http://www.reverbnation.com/widget_code/html_widget/theblacksheepexodus?widget_id=50&posted_by=theblacksheepexodus&pwc[design]=customized&pwc[background_color]=%23333333&pwc[included_songs]=1&pwc[photo]=0%2C1&pwc[size]=custom', width='100%', height='100%', frameborder='0', scrolling='no')
+                              .footer_branding(style='margin-top:-5px;font-size:10px;font-family:Arial;')
+                            //.widget_iframe(style='display:inline-block;width:380px;height:320px;margin:0;padding:0;border:0;')
+                            //  iframe.widget_iframe(src='http://www.reverbnation.com/widget_code/html_widget/ + {{currentUser.reverbnation}} + ?widget_id=50&posted_by= + {{currentUser.reverbnation}} + &pwc[design]=customized&pwc[background_color]=%23333333&pwc[included_songs]=1&pwc[photo]=0%2C1&pwc[size]=custom', width='100%', height='100%', frameborder='0', scrolling='no')
+                            //  .footer_branding(style='margin-top:-5px;font-size:10px;font-family:Arial;')
+                          input(ng-show='editMode', type='text', ng-model='currentUser.reverbnation', placeholder='slug eg:/yourbandname')
+                      dt Soundcloud Link:
+                        dd
+                          p(ng-hide='editMode')
+                            iframe(width='100%', height='166', scrolling='no', frameborder='no', src='https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/devincampbellmusic')
+                          input(ng-show='editMode' type='text' ng-model='currentUser.soundcloud', placeholder='slug eg:/yoursoundcloudid')
+            .panel.panel-info
+              .panel-heading
+                .panel-body
+                  dl
+                    h1 Musical Background:
+                    br
+                    dt What is you primary instrument?
+                    dd 
+                      p(ng-hide='editMode') {{currentUser.instrument}}
+                      select#instrument(ng-show='editMode', ng-model='currentUser.instrument', name='instrument')
+                        option -
+                        option Lead Guitar
+                        option Bass
+                        option Drums
+                        option Vocals
+                        option Rhythm Guitar
+                        option Lead and Rhythm Guitar
+                        option Acoustic Guitar Only
+                        option Keyboards
+                        option Piano
+                        option Harp
+                        option Violin
+                        option Fiddle
+                        option Cello
+                        option Saxophone
+                        option Trombone
+                        option Trumpet
+                        option Tuba
+                        option Xylophone
+                        option Hand Drums
+                        option Harmonica
+                        option Computer
+                        option This is A Band Profile
+                        option This is A Producer Profile
+                    dt How many years have you played that instrument? (estimate, Musicians Only)
+                    dd
+                      p(ng-hide='editMode') {{currentUser.primaryExp}} years
+                      input(ng-show='editMode', type='number', ng-model='currentUser.primaryExp')
+                    dt What other instruments can you play? (Musicians Only)
+                    dd 
+                      p(ng-hide='editMode') {{currentUser.secondary}}
+                      input(ng-show='editMode', type='text', ng-model='currentUser.secondary', placeholder='separate, with, commas')
+                    dt Can you sing back-up vocals or harmonies? (Musicians Only)
+                    dd
+                      p(ng-hide='editMode') {{currentUser.backup}}
+                      select#backup(ng-show='editMode', ng-model='currentUser.backup', name='backup')
+                        option -
+                        option Back-up
+                        option Harmonies
+                        option Both
+                        option Neither
+                        option Willing to Learn
+                    dt List Band Members (Bands Only)
+                    dd 
+                      p(ng-hide='editMode') {{currentUser.bandMembers}}
+                      input(ng-show='editMode', type='text', ng-model='currentUser.bandMembers', placeholder='Joe Shmoe: Guitar, John Smith: Drums, etc')
+                    dt How many years have you played music?
+                    dd
+                      p(ng-hide='editMode') {{currentUser.yearsPlayed}} years (estimate)
+                      input(ng-show='editMode', type='number', ng-model='currentUser.yearsPlayed')
+                    dt How many years of experience do you have playing live?
+                    dd
+                      p(ng-hide='editMode') {{currentUser.playLive}} years (estimate)
+                      input(ng-show='editMode', type='number', ng-model='currentUser.playLive')
+                    dt How many times have you done studio or session work? (estimate)
+                    dd
+                      p(ng-hide='editMode') {{currentUser.playStudio}} times
+                      input(ng-show='editMode', type='number', ng-model='currentUser.playStudio')
+                    dt What Genres are you interested in playing? (list as many as you want)
+                    dd 
+                      p(ng-hide='editMode') {{currentUser.genres}}
+                      input(ng-show='editMode', type='text', ng-model='currentUser.genres', placeholder='separate, with, commas')
+                    dt Self Summary:
+                    dd
+                      p(ng-hide='editMode') {{currentUser.aboutMe}}
+                      textarea#summary.input-no-width.rounded.shaded.left.clearboth(ng-show='editMode', ng-model='currentUser.aboutMe', type='text', name='aboutMe', rows='8', cols='50', required, placeholder='Share A Little About Yourself or Your Band')
+                    dt What Do You Want to Accomplish Here?:
+                    dd
+                      p(ng-hide='editMode') {{currentUser.accomplish}}
+                      textarea#accomplish.input-no-width.rounded.shaded.left.clearboth(ng-show='editMode', ng-model='currentUser.accomplish', type='text', name='accomplish', rows='8', cols='50', required, placeholder='What Do You Hope To Accomplish Playing Music?')
+                    br
+          .col-xs-5
+            .row
+              .col-xs-12
+                .panel.panel-info
+                  .panel-heading
+                    .panel-body
+                      dl.dl-horizontal
+                        dt Name
+                        dd 
+                          p(ng-hide='editMode') {{currentUser.name}}
+                          input(ng-show='editMode', type='text', ng-model='currentUser.name')
+                        dt Age 
+                        dd
+                          p(ng-hide='editMode') {{currentUser.age}}
+                          input(ng-show='editMode', type='number', ng-model='currentUser.age')
+                        dt Sex
+                        dd
+                          p(ng-hide='editMode') {{currentUser.sex}}
+                          label.fa.fa-male(ng-show='editMode') &nbsp; Male &nbsp;
+                          input.displayBlock1(ng-show='editMode', type='radio', ng-model='currentUser.sex', value='Male')
+                          label.fa.fa-female(ng-show='editMode') &nbsp; Female &nbsp;
+                          input.displayBlock(ng-show='editMode', type='radio', ng-model='currentUser.sex', value='Female')
+                          label(ng-show='editMode') &nbsp; or &nbsp; Other &nbsp;
+                          input.displayBlock(ng-show='editMode', type='radio', ng-model='currentUser.sex', value='Other')
+                          label(ng-show='editMode') &nbsp; or &nbsp; Male and Female (bandmembers) &nbsp;
+                          input.displayBlock(ng-show='editMode', type='radio', ng-model='currentUser.sex', value='Male and Female (bandmembers)')
+                        dt Email
+                        dd {{currentUser.email}}
+                        dt Location
+                        dd
+                          span(ng-hide='editMode') City: {{currentUser.city}}
+                          br
+                          input(ng-show='editMode', type='text', ng-model='currentUser.city', required, placeholder='City')
+                          span(ng-hide='editMode') State: {{currentUser.state}}
+                          br
+                          input(ng-show='editMode', type='text', ng-model='currentUser.state', required, placeholder='State')  
+                          span(ng-hide='editMode') Zipcode: {{currentUser.zip}} 
+                          br
+                          input(ng-show='editMode', type='text', ng-model='currentUser.zip', required, ng-minlength='5', ng-maxlength='5', ng-pattern='/^[0-9]+/', placeholder='Zipcode')
+                        dt Looking For:
+                        dd
+                          p(ng-hide='editMode') {{currentUser.lookingFor}}
+                          select#lookingFor(ng-show='editMode', ng-model='currentUser.lookingFor', name='lookingFor', required)
+                            option -
+                            option A Full Band
+                            option A Lead Guitarist
+                            option A Drummer
+                            option A Bassist
+                            option A Rhythm Guitarist
+                            option A Keyboardist
+                            option A Teacher
+                            option Someone to Jam With
+                            option Just Hanging Out
+                            option Various Instrumentalists, Contact Me!
+                        dt Seriousness Level About Music:
+                        dd
+                          p(ng-hide='editMode') {{currentUser.seriousnessLevel}}
+                          select#seriousnessLevel(ng-show='editMode', ng-model='currentUser.seriousnessLevel', name='seriousnessLevel', required)
+                            option -
+                            option Established, Professional Band
+                            option Touring Band
+                            option Garage Band
+                            option Jam Band
+                            option Church Band
+                            option Solo Professional Instrumentalist
+                            option Professional Instrumentalist
+                            option Serious Producer
+                            option Professional Producer
+                            option Amateur Producer
+                            option Beginner Producer
+                            option Beginner Band
+                            option Beginner Musician
+                            option Just Hanging Out
+                        dt Orientation:
+                        dd
+                          p(ng-hide='editMode') {{currentUser.orientation}}
+                          select#orientation(ng-show='editMode', ng-model='currentUser.orientation', name='orientation')
+                            option -
+                            option Asexual
+                            option Bisexual
+                            option Gay
+                            option Pansexual
+                            option Straight
+                            option Varied
+                        dt Height:
+                        dd
+                          p(ng-hide='editMode') {{currentUser.feet}} ' &nbsp; {{currentUser.inches}} "
+                          select#feet(ng-show='editMode', ng-model='currentUser.feet', name='feet')
+                            option -
+                            option 7
+                            option 6
+                            option 5
+                            option 4
+                            option 3
+                            option Band
+                          label.input_separator(ng-show='editMode', for='feet') &nbsp; feet &nbsp;
+                          p(ng-hide='editMode') 
+                          select#inches(ng-show='editMode', ng-model='currentUser.inches', name='inches')
+                            option -
+                            option 0
+                            option 1
+                            option 2
+                            option 3
+                            option 4
+                            option 5
+                            option 6
+                            option 7
+                            option 8
+                            option 9
+                            option 10
+                            option 11
+                            option Band
+                          label.input_separator(ng-show='editMode', for='inches') &nbsp; inches &nbsp;
+                        dt Body Type:
+                        dd
+                          p(ng-hide='editMode') {{currentUser.bodyType}}
+                          select#bodyType(ng-show='editMode', ng-model='currentUser.bodyType', name='bodyType')
+                            option -
+                            option Rather not say
+                            option Thin
+                            option Overweight
+                            option Skinny
+                            option Average
+                            option Fit
+                            option Athletic
+                            option Jacked
+                            option A little extra
+                            option Curvy
+                            option Full figured
+                            option Band
+                        dt Diet:
+                        dd
+                          p(ng-hide='editMode') {{currentUser.diet}}
+                          select#diet(ng-show='editMode', ng-model='currentUser.diet', name='diet')
+                            option -
+                            option Herbivore
+                            option Omnivore
+                            option Carnivore
+                            option Varied
+                        dt Smokes:
+                        dd
+                          p(ng-hide='editMode') {{currentUser.smoking}}
+                          label(ng-show='editMode') Yes &nbsp;
+                          input.displayBlock(ng-show='editMode', type='radio', ng-model='currentUser.smoking', value='Yes')
+                          label(ng-show='editMode') &nbsp; or &nbsp; No &nbsp;
+                          input.displayBlock(ng-show='editMode', type='radio', ng-model='currentUser.smoking', value='No')
+                          label(ng-show='editMode') &nbsp; or &nbsp; Socially &nbsp;
+                          input.displayBlock(ng-show='editMode', type='radio', ng-model='currentUser.smoking', value='Socially')
+                          label(ng-show='editMode') &nbsp; or &nbsp; Some Do, Some Don't &nbsp;
+                          input.displayBlock(ng-show='editMode', type='radio', ng-model='currentUser.smoking', value='Some Do, Some Don\'t')
+                        dt Drinks:
+                        dd
+                          p(ng-hide='editMode') {{currentUser.drinking}}
+                          label(ng-show='editMode') Yes &nbsp;
+                          input.displayBlock(ng-show='editMode', type='radio', ng-model='currentUser.drinking', value='Yes')
+                          label(ng-show='editMode') &nbsp; or &nbsp; No &nbsp;
+                          input.displayBlock(ng-show='editMode', type='radio', ng-model='currentUser.drinking', value='No')
+                          label(ng-show='editMode') &nbsp; or &nbsp; Socially &nbsp;
+                          input.displayBlock(ng-show='editMode', type='radio', ng-model='currentUser.drinking', value='Socially')
+                          label(ng-show='editMode') &nbsp; or &nbsp; Some Do, Some Don't &nbsp;
+                          input.displayBlock(ng-show='editMode', type='radio', ng-model='currentUser.drinking', value='Some Do, Some Don\'t')
+                        dt Drugs:
+                        dd
+                          p(ng-hide='editMode') {{currentUser.drug}}
+                          label(ng-show='editMode') Yes &nbsp;
+                          input.displayBlock(ng-show='editMode', type='radio', ng-model='currentUser.drug', value='Yes')
+                          label(ng-show='editMode') &nbsp; or &nbsp; No &nbsp;
+                          input.displayBlock(ng-show='editMode', type='radio', ng-model='currentUser.drug', value='No')
+                          label(ng-show='editMode') &nbsp; or &nbsp; Socially &nbsp;
+                          input.displayBlock(ng-show='editMode', type='radio', ng-model='currentUser.drug', value='Socially')
+                          label(ng-show='editMode') &nbsp; or &nbsp; Some Do, Some Don't &nbsp;
+                          input.displayBlock(ng-show='editMode', type='radio', ng-model='currentUser.drug', value='Some Do, Some Don\'t')
+                        dt What Religion Are You?
+                        dd 
+                          p(ng-hide='editMode') {{currentUser.religion}}
+                          input(ng-show='editMode', type='text', ng-model='currentUser.religion', placeholder='Any Religion or Lack Of Religion')
+                        dt How Serious Are You About Religion?
+                        dd
+                          p(ng-hide='editMode') {{currentUser.religionSerious}}
+                          label(ng-show='editMode') Very &nbsp;
+                          input.displayBlock(ng-show='editMode', type='radio', ng-model='currentUser.religionSerious', value='Very Serious')
+                          label(ng-show='editMode') &nbsp; or &nbsp; Medium &nbsp;
+                          input.displayBlock(ng-show='editMode', type='radio', ng-model='currentUser.religionSerious', value='Medium Seriousness')
+                          label(ng-show='editMode') &nbsp; or &nbsp; I Don't Care &nbsp;
+                          input.displayBlock(ng-show='editMode', type='radio', ng-model='currentUser.religionSerious', value='I Don\'t Care')
+                          label(ng-show='editMode') &nbsp; or &nbsp; Band Profile &nbsp;
+                          input.displayBlock(ng-show='editMode', type='radio', ng-model='currentUser.religionSerious', value='Band Profile')
+                        dt What political platform do you stand for?
+                        dd 
+                          p(ng-hide='editMode') {{currentUser.politics}}
+                          input(ng-show='editMode', type='text', ng-model='currentUser.politics', placeholder='Political Platform?')
+                        dt How Serious Are You About Politics?
+                        dd
+                          p(ng-hide='editMode') {{currentUser.politicsSerious}}
+                          label(ng-show='editMode') Very &nbsp;
+                          input.displayBlock(ng-show='editMode', type='radio', ng-model='currentUser.politicsSerious', value='Very Serious')
+                          label(ng-show='editMode') &nbsp; or &nbsp; Medium &nbsp;
+                          input.displayBlock(ng-show='editMode', type='radio', ng-model='currentUser.politicsSerious', value='Medium Seriousness')
+                          label(ng-show='editMode') &nbsp; or &nbsp; I Don't Care &nbsp;
+                          input.displayBlock(ng-show='editMode', type='radio', ng-model='currentUser.politicsSerious', value='I Don\'t Care')
+                          label(ng-show='editMode') &nbsp; or &nbsp; Band Profile &nbsp;
+                          input.displayBlock(ng-show='editMode', type='radio', ng-model='currentUser.politicsSerious', value='Band Profile')
+                        dt Zodiac Sign:
+                        dd
+                          p(ng-hide='editMode') {{currentUser.sign}}
+                          select#ZodiacSign(ng-show='editMode', ng-model='currentUser.sign', name='sign')
+                            option -
+                            option Aries- from March 21 to April 20
+                            option Taurus- from April 21 - May 20
+                            option Gemini- from May 21 - June 21
+                            option Cancer- from June 22 - July 22
+                            option Leo- from July 23-August 22
+                            option Virgo- from August 23-September 22
+                            option Libra- from September 23 - October 22
+                            option Scorpio- from October 23 - November 21
+                            option Sagittarius-from November 22 - December 21
+                            option Capricorn- from December 22-January 20
+                            option Aquarius- from January 21- February 19
+                            option Pisces- from February 20-March 20
+                            option Band Profile
+                        dt How Serious Are You About the Zodiac?
+                        dd
+                          p(ng-hide='editMode') {{currentUser.signSerious}}
+                          label(ng-show='editMode') Very &nbsp;
+                          input.displayBlock(ng-show='editMode', type='radio', ng-model='currentUser.signSerious', value='Very Serious')
+                          label(ng-show='editMode') &nbsp; or &nbsp; Medium &nbsp;
+                          input.displayBlock(ng-show='editMode', type='radio', ng-model='currentUser.signSerious', value='Medium Seriousness')
+                          label(ng-show='editMode') &nbsp; or &nbsp; I Don't Care &nbsp;
+                          input.displayBlock(ng-show='editMode', type='radio', ng-model='currentUser.signSerious', value='I Don\'t Care')
+                          label(ng-show='editMode') &nbsp; or &nbsp; Band Profile &nbsp;
+                          input.displayBlock(ng-show='editMode', type='radio', ng-model='currentUser.signSerious', value='Band Profile')
+                        dt Education:&nbsp;
+                        dd
+                          p(ng-hide='editMode') {{currentUser.educationStatus}}: &nbsp; {{currentUser.educationLevel}}
+                          select#educationStatus(ng-show='editMode', ng-model='currentUser.educationStatus', name='educationStatus')
+                            option -
+                            option Graduated from
+                            option Working on
+                            option Dropped out of
+                            option Band Profile
+                          p(ng-hide='editMode')
+                          select#educationLevel(ng-show='editMode', ng-model='currentUser.educationLevel', name='educationLevel')
+                            option -
+                            option High School
+                            option Nashville Software School
+                            option Acting School
+                            option Two-year College
+                            option Four-year University
+                            option Masters Program
+                            option Law School
+                            option Med School
+                            option PhD Program
+                            option Space Camp
+                            option School of Hard Knocks
+                            option Band Profile
+                        dt Income:&nbsp;
+                        dd
+                          p(ng-hide='editMode') {{currentUser.income}}
+                          select#income(ng-show='editMode', ng-model='currentUser.income', name='income')
+                            option -
+                            option Less than $20,000
+                            option $20,000–$30,000
+                            option $30,000–$40,000
+                            option $40,000–$50,000
+                            option $50,000–$60,000
+                            option $60,000–$70,000
+                            option $70,000–$80,000
+                            option $80,000–$100,000
+                            option $100,000–$150,000
+                            option $150,000–$250,000
+                            option $250,000–$500,000
+                            option $500,000–$1,000,000
+                            option More than $1,000,000
+                            option Rather not say
+                            option Band Profile
+                        dt Relationship Status:&nbsp;
+                        dd
+                          p(ng-hide='editMode') {{currentUser.relationshipStatus}}
+                          select#relationshipStatus(ng-show='editMode', ng-model='currentUser.relationshipStatus', name='relationshipStatus')
+                            option -
+                            option Its complicated
+                            option Single
+                            option Seeing someone
+                            option Married
+                            option In an open relationship
+                            option Band Profile
+                        dt Relationship Type:&nbsp;
+                        dd
+                          p(ng-hide='editMode') {{currentUser.monogamous}}
+                          select#monogamous(ng-show='editMode', ng-model='currentUser.monogamous', name='monogamous')
+                            option -
+                            option monogamous
+                            option non-monogamous
+                            option Band Profile
+                        dt Offspring:&nbsp;
+                        dd
+                          p(ng-hide='editMode') {{currentUser.childrenQ1}}
+                          select#childrenQ1(ng-show='editMode', ng-model='currentUser.childrenQ1', name='childrenQ1')
+                            option -
+                            option Has a kid
+                            option Has kids
+                            option Doesn’t have kids
+                            option Band Profile
+                          p(ng-hide='editMode') {{currentUser.childrenQ2}}
+                          select#childrenQ2(ng-show='editMode', ng-model='currentUser.childrenQ2', name='childrenQ2')
+                            option -
+                            option Might want kids
+                            option Wants kids
+                            option Doesn’t want kids
+                            option Band Profile
+                        dt Pets:&nbsp;
+                        dd
+                          p(ng-hide='editMode') {{currentUser.pets}}
+                          select#pets(ng-show='editMode', ng-model='currentUser.pets', name='pets')
+                            option -
+                            option Has Dog(s)
+                            option Has Cat(s)
+                            option Has Dog(s) and Cat(s)
+                            option Has Other(s)
+                            option Has Dog(s), Cat(s), and Other(s)
+                            option Band Profile
+                        dt Pet Allergy:&nbsp;
+                        dd
+                          p(ng-hide='editMode') {{currentUser.petAllergy}}
+                          select#petAllergy(ng-show='editMode', ng-model='currentUser.petAllergy', name='petAllergy')
+                            option -
+                            option No Allergies
+                            option Allergic to Dogs
+                            option Allergic to Cats
+                            option Allergic to Everything
+                            option Band Profile
+                        dt Animal Affinity:&nbsp;
+                        dd
+                          p(ng-hide='editMode') {{currentUser.affinity}}
+                          select#affinity(ng-show='editMode', ng-model='currentUser.affinity', name='affinity')
+                            option -
+                            option Loves All Animals
+                            option Loves Cats
+                            option Loves Dogs
+                            option Indifferent
+                            option Hates Dogs
+                            option Hates Cats
+                            option Hates All Animals
+                            option Band Profile
+                        br
+          .col-xs-1
+  .row
+    .col-xs-4
+    .col-xs-2          
+        button.btn.btn-default(style='width: 200px;' ng-hide='editMode', ng-click='startEditMode()') Edit Profile
+        button.btn.btn-default(ng-show='editMode && editForm.$valid', ng-click='updateProfile()') Save
+    .col-xs-6
+br
+
+

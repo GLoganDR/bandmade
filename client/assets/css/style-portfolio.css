@@ -1,0 +1,243 @@
+/* Portfolio Styles*/
+
+#portfolio{
+margin-top:40px;
+}
+.portfolio-full-width #coca_project-item {
+  margin:0 auto;
+  padding:0;
+}
+#portfolio-fitter {
+  text-align: left;
+}
+.filter ul li {
+    display: inline-block;
+    float:left;
+}
+.filter ul li:first-child {
+  margin-left:0;
+}
+.visible-xs, .visible-sm, .visible-md, .visible-lg {
+    display: none !important;
+}
+.nav.portfolio-filters{
+margin:0;
+padding:0;
+}
+.nav.portfolio-filters li a{
+padding:0 20px 0 0;
+}
+.more-portfolio ul li{
+display:inline-block;
+}
+.more-portfolio ul li a{
+padding:10px;
+}
+#grid .mix {
+  display: none;
+  opacity: 0;
+}
+
+/** Portfolio Page **/
+.portfolio-item {
+  margin-top: 40px;
+}
+
+.portfolio-image {
+  position: relative;
+}
+
+.portfolio-image img {
+  width: 100%;
+}
+
+.portfolio-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  -webkit-transition: all 0.3s ease-out;
+     -moz-transition: all 0.3s ease-out;
+       -o-transition: all 0.3s ease-out;
+          transition: all 0.3s ease-out;
+	background:#393E4A;
+}
+
+.portfolio-image:hover .portfolio-overlay {
+  opacity: 0.9;
+}
+.portfolio-caption p strong{
+  color:#333333 !important;
+}
+.portfolio-caption p{
+  color:#666666;
+  margin-bottom:0;
+}
+.portfolio-filters li.active a,
+.portfolio-filters li a:hover{
+  color:#1c2334;
+}
+.portfolio-filters li.active {
+  font-weight: bold;
+}
+.portfolio-filters li a {
+  color:#8c989f;
+}
+.more-portfolio ul{
+position:absolute;
+top:40%;
+left:15%;
+}
+.more-portfolio ul li a{
+color:#8c989f;
+}
+.more-portfolio ul li a:hover{
+color:#FFF;
+}
+.portfolio-overlay .portfolio-title {
+  color: #f0f0f0;
+  position: absolute;
+  margin: 0;
+  left: 25px;
+  bottom: 20px;
+  -webkit-transition: all 0.3s ease-out;
+     -moz-transition: all 0.3s ease-out;
+       -o-transition: all 0.3s ease-out;
+          transition: all 0.3s ease-out;
+}
+
+/** Portfolio Single **/
+.frr-item-content-wrap {
+  margin-top:10px;
+  text-align: center;  
+}
+.portfolio-single-image {
+  width: 100%;
+}
+.frr-item-content-wrap a {
+  color:#191919;
+  font-size:16px;
+}
+.frr-item-content-wrap p{
+  color:#7d7d7d;
+  font-size: 14px;
+  margin-bottom:0;
+}
+/** Our Work 1 **/
+.our-work-1-item {
+  margin-top: 40px;
+}
+
+.our-work-1-image {
+  position: relative;
+}
+
+.our-work-1-image img {
+  width: 100%;
+}
+
+.our-work-1-overlay {
+  position: absolute;
+  text-align: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  -webkit-transition: all 0.3s ease-out;
+     -moz-transition: all 0.3s ease-out;
+       -o-transition: all 0.3s ease-out;
+          transition: all 0.3s ease-out;
+}
+
+.our-work-1-image:hover .our-work-1-overlay {
+  opacity: 1;
+}
+
+.our-work-1-overlay p {
+  color: #f0f0f0;
+  position: absolute;
+  top: 50%;
+  margin-top: 8px;
+  width: 100%;
+  -webkit-transition: all 0.3s ease-out;
+     -moz-transition: all 0.3s ease-out;
+       -o-transition: all 0.3s ease-out;
+          transition: all 0.3s ease-out;
+}
+
+.our-work-1-image:hover .our-work-1-overlay p {
+  margin-top: -8px;
+}
+
+.our-work-1-item-description {
+  padding: 20px 0 0;
+}
+
+.our-work-1-item-description p {
+  float: right;
+  width: 29%;
+  text-align: right;
+  line-height: 1.4em;
+}
+
+.our-work-1-item-description h6,
+.our-work-1-item-description p {
+  margin: 0;
+  display: inline-block;
+}
+
+.our-work-1-item-description h6 {
+  float: left;
+  width: 69%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+  .our-work-1-item-description h6 {
+    width: 65%;
+  }
+
+  .our-work-1-item-description p {
+    width: 33%;
+  }
+
+}
+.portfolio-overlay-one{
+position:absolute;
+bottom:0;
+width:100%;
+background:#000;
+opacity:0.9;
+padding:10px 0;
+}
+.portfolio_2_caption p{
+color:#FFF !important;
+}
+.portfolio-one-caption{
+padding:0 20px;
+}
+.portfolio-overlay-one .more-portfolio{
+opacity:0;
+float:right;
+position:relative;
+width:50%;
+margin-right:10px;
+}
+.portfolio-overlay-one p{
+color:#cccccc !important;
+}
+.portfolio-overlay-one p strong{
+color:#fff !important;
+}
+.portfolio-overlay-one:hover .more-portfolio{
+opacity:1;
+float:right;
+}
+.portfolio_2_caption{
+left:40% !important;
+top:47% !important;
+position:absolute;
+}

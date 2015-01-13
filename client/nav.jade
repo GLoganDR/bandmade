@@ -1,0 +1,72 @@
+header#header.site-header(role='banner' ng-controller='NavCtrl')
+        #frr-top-bar.top-bar-wrap
+          .container
+            .left-widget-wrap.left
+              .phone.left
+                |Make the Most Out of Making Music
+            .right-widget-wrap.right
+              .top-social
+                ul.nav.navbar-nav.navbar-right(ng-hide='email')
+                  li 
+                    a(href='/#/login', style='color:white;').fa.fa-sign-in.fa-md.cl-effect-4 &nbsp Login/Register
+        #frr-top-nav-wrapper
+          .container
+            .row
+              #logo.col-lg-4.col-md-12.col-sm-12
+                .logo-outer
+                  a.logo(href='/#/', title='Home')
+                    span
+              nav(role='navigation')
+                #top-nav.col-lg-8.col-md-12.col-sm-12
+                  .top-nav-wrap.right.navbg
+                    a#mobile-menu-trigger.mobile-menu-closed(href='#')
+                      i.fa.fa-bars
+                    ul#menu.sf-menu
+                      li.cl-effect-4
+                        a(href='/#/')
+                          span.fa.fa-home &nbsp Home 
+                      //li.cl-effect-4(ng-show='email')
+                        a(href='/#/inbox')
+                          span.fa.fa-envelope &nbsp Inbox
+                          span.badge= mCount 
+                      li.cl-effect-4(ng-show='email')
+                        a(href='/#/profile') 
+                          span.fa.fa-user &nbsp Dashboard
+                      li.cl-effect-4(ng-show='email')
+                        a(href='/#/browse') 
+                          span.fa.fa-users &nbsp Browse Users                 
+                      li.dropdown.cl-effect-4
+                        a.sf-with-ul(href='#')
+                          span.fa.fa-list &nbsp Pages
+                        ul
+                          //li.cl-effect-4(ng-show='email')
+                            a(href='/#/friends') 
+                              span.fa.fa-rocket &nbsp My Friends//
+                          li.cl-effect-4
+                            a(href='/#/about')
+                              span.fa.fa-book &nbsp About Us
+                          li.cl-effect-4
+                            a(href='/#/contact')
+                              span.fa.fa-mobile &nbsp Contact
+                          li.cl-effect-4
+                            a(href='/#/faq')
+                              span.fa.fa-question &nbsp FAQ
+                      //li.cl-effect-4(ng-show='email')
+                        a.popup-with-zoom-anim(href='#small-dialog')
+                          i.fa.fa-search &nbsp Search
+                        form#small-dialog.frr_fade.zoom-anim-dialog.mfp-hide
+                          fieldset(style='border: 0;')
+                            ol(style='list-style: none;')
+                              li
+                                span
+                                  i.fa.fa-search
+                                input#search(name='search', type='text', placeholder='', autocomplete='off', required='required')
+                        //
+                           END #small-dialog 
+                      
+                      li.cl-effect-4(ng-show='email')
+                        a(href='/#/logout'): i.fa.fa-sign-out.fa-md &nbsp Logout
+
+              //
+                 end top-nav 
+br
